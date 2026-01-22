@@ -1,4 +1,4 @@
-# Qblet Architecture Standard (v3.1)
+# qblet Architecture Standard (v3.1)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Stable](https://img.shields.io/badge/Status-Stable-green.svg)](./docs/SPECIFICATION.md)
@@ -10,7 +10,7 @@
 
 ---
 
-## � Documentación Oficial
+## 📖 Documentación Oficial
 
 El estándar se compone de los siguientes documentos normativos:
 
