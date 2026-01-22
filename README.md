@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 <div align="center">
-  <img src="./assets/logo.jpg" alt="Qblet Logo" width="120" />
+  <img src="./assets/logo.jpg" alt="Qblet Logo" height="300" />
 </div>
 
-# Qblet Architecture Standard (v3.1)
-=======
 # qblet Architecture Standard (v3.1)
->>>>>>> c8523e5bc823ef24c183b75cd5700e2a897d49de
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Stable](https://img.shields.io/badge/Status-Stable-green.svg)](./docs/SPECIFICATION.md)
