@@ -30,3 +30,4 @@ npm start
 4.  **Social por Defecto:** Comunicación P2P mediante Webhooks firmados.
 
 Consulta la [Especificación Completa](./docs/SPECIFICATION.md).
+Consulta la [Whitepaper Técnico](./docs/WHITEPAPER.md).

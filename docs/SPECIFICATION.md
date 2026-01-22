@@ -1,4 +1,4 @@
-# Especificación del Estándar Qblet (v1.0)
+# Especificación del Estándar Qblet (v3.1)
 
 ## 1. Definiciones
 Un **Qblet** es un sistema de software desplegable independientemente que encapsula un subdominio de negocio.
