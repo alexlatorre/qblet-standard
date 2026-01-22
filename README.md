@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./assets/logo.jpg" alt="Qblet Logo" width="120" />
+</div>
+
 # Qblet Architecture Standard (v3.1)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
