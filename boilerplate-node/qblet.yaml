@@ -1,0 +1,19 @@
+qbletVersion: "1.0"
+info:
+  id: "com.example.starter"
+  name: "Starter Qblet"
+  description: "Gold Master Implementation"
+  domain: "Core"
+  maintainer: { name: "Community" }
+interfaces:
+  human_ui: { url: "/" }
+  machine_api: { protocol: "REST", base_url: "/api/v1", health_check: "/healthz" }
+capabilities:
+  data_exposed:
+    - entity: "StockUpdate"
+      endpoint: "/api/v1/stock/update"
+      access: "protected"
+      required_scope: "write_stock"
+  events_emitted:
+    - topic: "inventory.stock.depleted"
+      description: "Stock reached zero"

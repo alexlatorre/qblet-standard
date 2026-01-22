@@ -1,0 +1,8 @@
+qbletVersion: "1.0"
+info:
+  id: "com.example.full"
+  name: "Full Example Qblet"
+  domain: "Logistics"
+interfaces:
+  human_ui: { url: "https://ui.example.com" }
+  machine_api: { base_url: "https://api.example.com/v1" }

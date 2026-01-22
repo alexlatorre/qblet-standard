@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Qblet Console</title>
+    <style>
+        body { font-family: system-ui; background: #f8fafc; color: #1e293b; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 400px; text-align: center; border: 1px solid #e2e8f0; }
+        h1 { margin: 0; font-size: 1.5rem; }
+        .badge { background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 99px; font-size: 0.8rem; font-weight: bold; margin-top: 5px; display: inline-block; }
+        .status { margin: 1rem 0; font-family: monospace; font-weight: bold; }
+        .green { color: #16a34a; }
+        .btn { display: block; margin: 0.5rem 0; padding: 0.75rem; background: #2563eb; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .footer { font-size: 0.8rem; color: #64748b; margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 id="name">Loading...</h1>
+        <span class="badge" id="domain">...</span>
+        <div class="status" id="status">Connecting...</div>
+        <a href="/qblet.yaml" class="btn">📄 View Manifest</a>
+        <a href="/healthz" class="btn" style="background: white; color: #333; border: 1px solid #cbd5e1;">💓 Health Check</a>
+        <div class="footer">ID: <span id="id">...</span></div>
+    </div>
+    <script>
+        fetch('/qblet.yaml').then(r=>r.text()).then(t => {
+            document.getElementById('name').innerText = t.match(/name:\s*"(.*?)"/)?.[1] || "Unknown";
+            document.getElementById('domain').innerText = t.match(/domain:\s*"(.*?)"/)?.[1] || "Core";
+            document.getElementById('id').innerText = t.match(/id:\s*"(.*?)"/)?.[1] || "?";
+        });
+        fetch('/healthz').then(r=>r.json()).then(d => {
+            const el = document.getElementById('status');
+            if(d.status==='up') { el.innerHTML = '● OPERATIONAL'; el.className += ' green'; }
+            else { el.innerText = '⚠️ DEGRADED'; }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  qblet-inventory:
+    build: ../boilerplate-node
+    container_name: inventory-core
+    environment:
+      - PORT=8080
+      - QBLET_ID=com.empresa.inventory
+      - QBLET_BASE_URL=http://inventory-core:8080
+      - WEBHOOK_SECRET=secret1
+      - QBLET_PUBLIC_KEY=dev-key
+    ports: ["8081:8080"]
+
+  qblet-shop:
+    build: ../boilerplate-node
+    container_name: shop-core
+    environment:
+      - PORT=8080
+      - QBLET_ID=com.empresa.shop
+      - QBLET_BASE_URL=http://shop-core:8080
+      - QBLET_INVENTORY_URL=http://inventory-core:8080
+    ports: ["8082:8080"]
