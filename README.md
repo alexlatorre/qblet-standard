@@ -47,6 +47,7 @@ Todo Qblet debe exponer dos interfaces simultáneas:
 ### 3. Comunicación Social (P2P)
 *   **Síncrono (REST)**: Solo para comandos transaccionales inmediatos.
 *   **Asíncrono (Webhooks)**: Comunicación por defecto para consistencia eventual.
+*   **Descubrimiento por Capacidades**: Los consumidores buscan "qué necesitas" (URN) y no "quién eres" (ID), permitiendo refactorizaciones transparentes.
 *   **Sin Brokers Centrales**: Se favorece la comunicación directa P2P firmada criptográficamente sobre buses complejos como Kafka en etapas tempranas.
 
 ### 4. Seguridad Zero Trust

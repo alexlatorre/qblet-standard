@@ -4,3 +4,4 @@
 2. **La UI no es un añadido:** Si lo construyes, debes operarlo.
 3. **Posee tus datos, alquila los ajenos.**
 4. **Evolución Darwiniana:** Despliega sin romper a los demás.
+5. **Define *qué* haces, no *quién* eres:** (Capacidad sobre Identidad).

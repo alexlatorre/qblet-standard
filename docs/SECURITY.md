@@ -7,6 +7,7 @@ Ningún Qblet confía en otro por estar en la misma red.
 * Algoritmo obligatorio: **RS256**.
 * Flujo: OAuth2 Client Credentials.
 * Validación: Audiencia (`aud`) y Scopes (`scope`).
+* **Nota**: Para interacciones basadas en capacidades, el `scope` DEBERÍA coincidir con la URN de la capacidad (ej: `scope: urn:qblet:capability:inventory-check`).
 
 ## 3. Webhooks
 * Firma obligatoria HMAC-SHA256 en header `X-Qblet-Signature`.

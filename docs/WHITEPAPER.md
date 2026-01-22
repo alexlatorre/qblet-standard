@@ -163,7 +163,13 @@ capabilities:
     - topic: "inventory.stock.depleted"  
       schema: "/schemas/events/stock-depleted.v1.json"  
       description: "Emitted immediately when available stock reaches zero."  
-dependencies:  
+  provided:  
+    - urn: "urn:qblet:capability:inventory-check"  
+    - urn: "urn:qblet:capability:stock-reservation"  
+dependencies:
+  required_capabilities:
+    - urn: "urn:qblet:capability:auth:user-validation"
+      reason: "To validate user identity before stock reservation."  
   required\_services:  
     - id: "com.corp.sales.orders"  
       version: "^1.0.0"  
@@ -322,8 +328,16 @@ El Qblet Registry actúa como la "Guía Telefónica" dinámica del ecosistema.
     
 *   Seguridad: Todas las operaciones de escritura (Start/Pulse/Stop) DEBEN estar autenticadas mediante Q-Token para evitar el "Service Spoofing".
     
+### 9.2 Descubrimiento por Capacidades (Capability-Based Discovery)
 
-### 9.2 Protocolo de Anuncio
+Para permitir refactorizaciones transparentes (ej: separar `security` en `users` y `auth`), los consumidores NO DEBEN acoplarse al ID del Qblet (`com.corp.security`), sino a la capacidad que necesitan.
+
+*   **URN de Capacidad**: Identificador agnóstico de la implementación. Ej: `urn:qblet:capability:user-validation`.
+*   **Resolución**: El cliente pregunta al Registry "¿Quién provee `urn:qblet:capability:user-validation`?" y recibe una lista de endpoints candidatos.
+*   **Beneficio**: Permite mover lógica de negocio entre Qblets sin reconfigurar a los clientes.
+
+### 9.3 Protocolo de Anuncio
+
 
 1.  Start (Registro): Al arrancar, el Qblet envía POST /v1/announce con estado UP y un ttl (Time To Live), por ejemplo, 30 segundos.
     
